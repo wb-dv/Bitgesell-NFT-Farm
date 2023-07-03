@@ -1,0 +1,12 @@
+.LastPayment {
+  width: 100%;
+
+  text-align: center;
+  color: var(--description);
+  font-weight: 500;
+
+  &__strong {
+    font-weight: 800;
+  }
+}
+

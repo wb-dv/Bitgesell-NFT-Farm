@@ -1,0 +1,33 @@
+.WBGLCounter {
+  width: 100%;
+  margin-bottom: 1.3vw;
+
+  &__title {
+    width: 100%;
+
+    font-weight: 700;
+    font-size: 2.1vw;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__count {
+    font-size: 3.6vw;
+    color: var(--highlight);
+  }
+
+  &::after {
+    content: '';
+    position: relative;
+    right: 3vw;
+
+    display: block;
+    width: 30vw;
+    height: 23.3vw;
+    margin-top: 2.3vw;
+
+    background-image: url('/src/assets/img/treasure_chest.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}

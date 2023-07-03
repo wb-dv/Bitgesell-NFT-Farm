@@ -1,0 +1,44 @@
+@import '/src/vars.scss';
+
+.TokensPanel {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding: 1.95vw 1vw 0 2.4vw;
+
+  background-color: var(--primary);
+  border-radius: var(--border-radius-panel);
+
+  &::after {
+    content: '';
+    display: block;
+    width: 4.8vw;
+    height: 5vw;
+
+    position: absolute;
+    top: -2.4vw;
+    right: 5.7%;
+
+    background-image: url('/src/assets/img/coin_high.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__search {
+    @include adpt-max($desm-r) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 2vw;
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+@import '/src/vars.scss';
+
+.MainPanel {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  @include portrait-orientation {
+    flex-direction: column;
+  }
+}

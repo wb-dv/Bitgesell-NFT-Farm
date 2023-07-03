@@ -1,0 +1,18 @@
+.MainTitle {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 1vw;
+
+  &__h1 {
+    font-size: 4vw;
+    font-weight: 400;
+    font-family: var(--font-secondary);
+    text-align: center;
+    font-style: normal;
+    line-height: normal;
+  }
+
+  &__strong {
+    color: var(--primary);
+  }
+}

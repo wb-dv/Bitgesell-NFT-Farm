@@ -1,0 +1,16 @@
+@import '/src/vars.scss';
+
+.Container {
+  position: relative;
+  z-index: 1;
+
+  width: 100vw;
+  height: 100vh;
+
+  padding: 7vh 10vw 5vh;
+  margin: 0 auto;
+
+  overflow: hidden auto;
+
+  @include scrollbar;
+}

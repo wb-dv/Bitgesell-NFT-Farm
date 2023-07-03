@@ -1,0 +1,21 @@
+.TotalPts {
+  width: 50.5%;
+  padding: 0.6vw 0;
+  margin-top: 1.3vw;
+
+  position: relative;
+  right: 0.65vw;
+
+  background-color: var(--search);
+  border-radius: var(--border-radius-total-pts) var(--border-radius-total-pts) 0 0;
+
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.05vw;
+  font-weight: 700;
+
+  &__count {
+    color: var(--highlight);
+  }
+}
+

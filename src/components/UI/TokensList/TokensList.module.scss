@@ -1,0 +1,69 @@
+.TokensList {
+  display: flex;
+  align-items: center;
+
+  &__wrapper {
+    position: relative;
+    top: -0.7vw;
+
+    margin-top: 1.1vw;
+
+    &.Common {
+      margin-top: 0;
+    }
+
+    &.Rare {
+      margin-top: 1.4vw;
+      margin-right: 1vw;
+    }
+
+    &.Unique {
+      margin-top: 1.4vw;
+      margin-right: 1vw;
+    }
+
+    &.Legendary {
+      margin-top: 1.6vw;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.4vw;
+
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  &__countPts {
+    font-size: 1.1vw;
+    font-weight: 800;
+
+    &.Common {
+      color: var(--score-common);
+    }
+
+    &.Special {
+      color: var(--score-special);
+    }
+
+    &.Rare {
+      color: var(--score-rare);
+    }
+
+    &.Unique {
+      color: var(--score-unique);
+    }
+
+    &.Legendary {
+      position: absolute;
+      right: 10%;
+      top: 2vw;
+
+      max-width: 1.7vw;
+
+      color: var(--score-legendary);
+      line-height: 1vw;
+    }
+  }
+}
+

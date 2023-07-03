@@ -1,0 +1,22 @@
+.SocialLink {
+  display: block;
+  width: 5vw;
+  height: 5vw;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &.twitter {
+    background-image: url('@img/twitter.png');
+  }
+
+  &.g44 {
+    width: 4.5vw;
+    height: 4.5vw;
+    background-image: url('@img/g44.png');
+  }
+
+  &.discord {
+    background-image: url('@img/telegram.png');
+  }
+}

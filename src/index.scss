@@ -1,0 +1,52 @@
+@import 'fonts';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: #fff;
+  --dark: rgba(31, 28, 89, 1);
+
+  --primary: rgba(140, 85, 255, 1);
+
+  --secondary: rgba(200, 175, 253, 1);
+  --secondary-light: rgba(212, 191, 255, 1);
+
+  --button: rgba(77, 255, 153, 1);
+  --button-hover: rgb(112 255 173);
+
+  --search: rgba(230, 218, 255, 1);
+
+  --highlight: rgba(255, 55, 107, 1);
+
+  --description: rgba(145, 122, 195, 1);
+
+  --score-common: rgba(255, 213, 0, 1);
+  --score-special: rgba(128, 205, 255, 1);
+  --score-rare: rgba(196, 255, 0, 1);
+  --score-unique: rgba(255, 134, 134, 1);
+  --score-legendary: rgba(77, 255, 153, 1);
+
+  --border-radius-huge: 2vw;
+  --border-radius-panel: 2.3vw;
+  --border-radius-search: 1vw;
+  --border-radius-total-pts: 1vw;
+
+  --font-primary: 'Montserrat';
+  --font-secondary: 'Rammetto One';
+
+  --duration: 0.3s;
+}
+
+body {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  line-height: normal;
+  color: var(--dark);
+  font-size: 0.9vw;
+  overflow: hidden;
+}
+

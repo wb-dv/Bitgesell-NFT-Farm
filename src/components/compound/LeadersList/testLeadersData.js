@@ -1,0 +1,16 @@
+export const leaders = [
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+  { adress: '0xefa749fe..........4ecbcc596a', points: 12, reward: 234, id: Math.random() * Date.now() },
+];

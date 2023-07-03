@@ -1,0 +1,66 @@
+@import '/src/vars.scss';
+
+.LeaderBoard {
+  position: relative;
+  z-index: 0;
+
+  width: 100%;
+  height: 17vw;
+  padding: 1.9vw 2.5vw 1.6vw 2.4vw;
+
+  background-color: var(--secondary);
+  border-radius: var(--border-radius-panel);
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -3vw;
+    right: 34%;
+
+    display: block;
+    width: 10.8vw;
+    height: 9vw;
+
+    background-image: url('/src/assets/img/coin_mid.png');
+    background-repeat: no-repeat;
+    background-position: -3.4vw -4vw;
+    background-size: 17vw 15vw;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    bottom: -2vw;
+    right: -8%;
+
+    display: block;
+    width: 8.8vw;
+    height: 7vw;
+
+    background-image: url('/src/assets/img/coin_low.png');
+    background-repeat: no-repeat;
+    background-position: -2vw -2vw;
+    background-size: 14vw 13vw;
+  }
+
+  &__wrapper {
+    width: 100%;
+    margin-bottom: 2vw;
+  }
+
+  &__scrollContainer {
+    height: 100%;
+    overflow: auto;
+
+    @include scrollbar;
+  }
+
+  &__search {
+    max-width: 37.6%;
+    margin-top: 0.3vw;
+    margin-bottom: 0.7vw;
+  }
+}
+

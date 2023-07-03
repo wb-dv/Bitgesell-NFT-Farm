@@ -1,0 +1,10 @@
+@use 'sass:math';
+@import '/src/vars.scss';
+
+.DataBlock {
+  width: percentage(math.div(861, 1382.4));
+
+  @include portrait-orientation {
+    width: 100%;
+  }
+}
