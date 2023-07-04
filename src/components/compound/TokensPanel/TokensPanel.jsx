@@ -21,7 +21,7 @@ export function TokensPanel() {
               tokens={tokens} 
               level={tokens[0].level} 
               countPts={pts[tokens[0].level]} 
-              key={tokens[0].level} 
+              key={tokens[0].level}
             />
           ))}
         </div>

@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 :root {
   --white: #fff;
   --dark: rgba(31, 28, 89, 1);
@@ -23,11 +25,15 @@
   --score-legendary: rgba(77, 255, 153, 1);
 
   --border-radius-huge: 100px;
-  --border-radius-panel: 41px;
 
-  --border-radius-search: 29px;
+  --border-radius-panel: 2vw;
+  --border-radius-panel-mob: 41px;
 
-  --border-radius-total-pts: 21px;
+  --border-radius-search: 2vw;
+  --border-radius-search-mob: 29px;
+
+  --border-radius-total-pts: 1vw;
+  --border-radius-total-pts-mob: 21px;
 
   --font-primary: 'Montserrat';
   --font-secondary: 'Rammetto One';
@@ -41,7 +47,7 @@ $border-radius-huge: 100px;
 
 $left-block-width: 861;
 
-$big-xxl: 1800;
+$big-xxl: 1728;
 $big-r: 1451;
 
 $desm-r: 1383;
@@ -57,6 +63,17 @@ $bmob-r: 576;
 $mmob-r: 500;
 $smob-r: 400;
 $xsmob-r: 380;
+
+$multi-common: 'x1.5';
+$multi-special: 'x2';
+$multi-rare: 'x3';
+
+$multi-common-color: #fcd53f;
+$multi-special-color: #0074ba;
+$multi-rare-color: #00d26a;
+
+$orientation-portrait: 'portrait';
+$orientation-landscape: 'landscape';
 
 @mixin adpt-min($width) {
   @media (min-width: #{$width}px) {
@@ -91,5 +108,55 @@ $xsmob-r: 380;
     border-radius: $border-radius;
   }
 
+  scrollbar-width: thin;
   scrollbar-color: $foreground-color $background-color;
+}
+
+@function switch-multi-pos($multi, $orientation: $orientation-landscape) {
+  $left: 44px;
+  @if $orientation == $orientation-portrait {
+    $left: 72px;
+    @if $multi == $multi-special {
+      $left: 56px;
+    } @else if $multi == $multi-rare {
+      $left: 35px;
+    }
+  } @else {
+    $left: 183%;
+    @if $multi == $multi-special {
+      $left: 140%;
+    } @else if $multi == $multi-rare {
+      $left: 89%;
+    }
+  }
+  @return $left;
+}
+
+@mixin token-highlight($color: $multi-common-color) {
+  box-shadow: 0px 0px 18px $color, inset 0px 0px 20px $color;
+  border-radius: 5px;
+  filter: drop-shadow(0px 0px 13px $color);
+}
+
+@mixin token-multi($multi: $multi-common, $color: $multi-common-color) {
+  &::before {
+    content: $multi;
+    width: max-content;
+
+    position: absolute;
+    bottom: -76%;
+
+    left: switch-multi-pos($multi);
+
+    @include token-highlight($color);
+
+    color: var(--white);
+    font-size: 1vw;
+
+    @include portrait-orientation {
+      bottom: -111%;
+      left: switch-multi-pos($multi, $orientation-portrait);
+      font-size: 25px;
+    }
+  }
 }

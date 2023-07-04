@@ -41,11 +41,13 @@
 
     @include portrait-orientation($mtab-r) {
       padding: 6px 0;
+
+      border-radius: var(--border-radius-search-mob);
     }
   }
 
   &__headerItem {
-    margin-bottom: 0.2vw;
+    margin-bottom: -0.2vw;
     padding: 0.18vw;
 
     color: var(--white);
@@ -98,7 +100,7 @@
   }
 
   &__points {
-    width: 15%;
+    width: 13%;
 
     @include portrait-orientation($mtab-r) {
       width: 14%;

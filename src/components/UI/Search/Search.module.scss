@@ -50,6 +50,8 @@
   @include portrait-orientation($mtab-r) {
     padding: 15px 60px;
 
+    border-radius: var(--border-radius-search-mob);
+
     font-size: 22px;
 
     &__wrapper {

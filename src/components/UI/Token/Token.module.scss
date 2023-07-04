@@ -8,7 +8,7 @@
   min-height: 52px;
 
   margin-right: 0.23vw;
-  margin-bottom: 19px;
+  margin-bottom: 1.1vw;
 
   background-image: url('/src/assets/img/token__placeholder.png');
   background-repeat: no-repeat;
@@ -43,125 +43,55 @@
   }
 
   &__Common {
-    &_1 {
-      background-image: url('/src/assets/img/tokens/common_1.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_2 {
-      background-image: url('/src/assets/img/tokens/common_2.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_3 {
-      background-image: url('/src/assets/img/tokens/common_3.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_4 {
-      background-image: url('/src/assets/img/tokens/common_4.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_5 {
-      background-image: url('/src/assets/img/tokens/common_5.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_6 {
-      background-image: url('/src/assets/img/tokens/common_6.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_7 {
-      background-image: url('/src/assets/img/tokens/common_7.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_8 {
-      background-image: url('/src/assets/img/tokens/common_8.png'), url('/src/assets/img/token__placeholder.png');
+    // &:nth-child(-n + 4) {
+    //   @include token-highlight;
+    // }
+    // @include token-highlight;
+
+    @for $i from 1 through 8 {
+      &_#{$i} {
+        background-image: url('/src/assets/img/tokens/common_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
+
+        // @if $i == 1 {
+        //   &::before {
+        //     content: 'x 1.5';
+        //     width: max-content;
+
+        //     position: absolute;
+        //     bottom: -76%;
+        //     left: 5vw;
+
+        //     @include token-highlight;
+
+        //     color: var(--white);
+        //     font-size: 1vw;
+        //   }
+        // }
+      }
     }
   }
 
   &__Special {
-    &_1 {
-      background-image: url('/src/assets/img/tokens/special_1.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_2 {
-      background-image: url('/src/assets/img/tokens/special_2.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_3 {
-      background-image: url('/src/assets/img/tokens/special_3.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_4 {
-      background-image: url('/src/assets/img/tokens/special_4.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_5 {
-      background-image: url('/src/assets/img/tokens/special_5.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_6 {
-      background-image: url('/src/assets/img/tokens/special_6.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_7 {
-      background-image: url('/src/assets/img/tokens/special_7.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_8 {
-      background-image: url('/src/assets/img/tokens/special_8.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_9 {
-      background-image: url('/src/assets/img/tokens/special_9.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_10 {
-      background-image: url('/src/assets/img/tokens/special_10.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_11 {
-      background-image: url('/src/assets/img/tokens/special_11.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_12 {
-      background-image: url('/src/assets/img/tokens/special_12.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_13 {
-      background-image: url('/src/assets/img/tokens/special_13.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_14 {
-      background-image: url('/src/assets/img/tokens/special_14.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_15 {
-      background-image: url('/src/assets/img/tokens/special_15.png'), url('/src/assets/img/token__placeholder.png');
+    @for $i from 1 to 15 {
+      &_#{$i} {
+        background-image: url('/src/assets/img/tokens/special_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
+      }
     }
   }
 
   &__Rare {
-    &_1 {
-      background-image: url('/src/assets/img/tokens/rare_1.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_2 {
-      background-image: url('/src/assets/img/tokens/rare_2.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_3 {
-      background-image: url('/src/assets/img/tokens/rare_3.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_4 {
-      background-image: url('/src/assets/img/tokens/rare_4.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_5 {
-      background-image: url('/src/assets/img/tokens/rare_5.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_6 {
-      background-image: url('/src/assets/img/tokens/rare_6.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_7 {
-      background-image: url('/src/assets/img/tokens/rare_7.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_8 {
-      background-image: url('/src/assets/img/tokens/rare_8.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_9 {
-      background-image: url('/src/assets/img/tokens/rare_9.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_10 {
-      background-image: url('/src/assets/img/tokens/rare_10.png'), url('/src/assets/img/token__placeholder.png');
+    @for $i from 1 to 10 {
+      &_#{$i} {
+        background-image: url('/src/assets/img/tokens/rare_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
+      }
     }
   }
 
   &__Unique {
-    &_1 {
-      background-image: url('/src/assets/img/tokens/unique_1.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_2 {
-      background-image: url('/src/assets/img/tokens/unique_2.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_3 {
-      background-image: url('/src/assets/img/tokens/unique_3.png'), url('/src/assets/img/token__placeholder.png');
-    }
-    &_4 {
-      background-image: url('/src/assets/img/tokens/unique_4.png'), url('/src/assets/img/token__placeholder.png');
+    @for $i from 1 to 4 {
+      &_#{$i} {
+        background-image: url('/src/assets/img/tokens/unique_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
+      }
     }
   }
 
