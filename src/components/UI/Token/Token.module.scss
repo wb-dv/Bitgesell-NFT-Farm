@@ -1,9 +1,14 @@
+@import '/src/vars.scss';
+
 .Token {
   position: relative;
   width: 2.55vw;
   height: 3vw;
+  min-width: 44px;
+  min-height: 52px;
 
   margin-right: 0.23vw;
+  margin-bottom: 19px;
 
   background-image: url('/src/assets/img/token__placeholder.png');
   background-repeat: no-repeat;
@@ -20,6 +25,21 @@
     text-align: center;
     font-weight: 600;
     color: var(--white);
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include portrait-orientation($mtab-r) {
+    margin-right: 4px;
+    margin-bottom: 37px;
+
+    &::after {
+      bottom: -31px;
+
+      font-size: 25px;
+    }
   }
 
   &__Common {

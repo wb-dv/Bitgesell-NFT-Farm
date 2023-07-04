@@ -2,6 +2,7 @@
 
 .TokensPanel {
   position: relative;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -13,31 +14,56 @@
   background-color: var(--primary);
   border-radius: var(--border-radius-panel);
 
-  &::after {
-    content: '';
-    display: block;
-    width: 4.8vw;
-    height: 5vw;
+  &__coin {
+    position: relative;
 
-    position: absolute;
-    top: -2.4vw;
-    right: 5.7%;
+    &::after {
+      content: '';
+      display: block;
+      width: 4.8vw;
+      height: 5vw;
 
-    background-image: url('/src/assets/img/coin_high.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+      position: absolute;
+      top: -2.4vw;
+      right: 5.7%;
+
+      background-image: url('/src/assets/img/layouts/coin_high.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    @include portrait-orientation {
+      &::after {
+        width: 77.1px;
+        height: 77.1px;
+
+        top: auto;
+        right: auto;
+        bottom: -11vw;
+        left: 18%;
+
+        transform: rotate(55deg);
+      }
+    }
   }
 
   &__flex {
     display: flex;
     flex-wrap: wrap;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  @include portrait-orientation($mtab-r) {
+    padding: 43px 24px 25px;
   }
 
   &__search {
-    @include adpt-max($desm-r) {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: 2vw;
+    margin-bottom: 2vw;
+
+    @include portrait-orientation {
+      margin-bottom: 53px;
     }
   }
 }

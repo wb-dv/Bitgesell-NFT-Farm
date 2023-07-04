@@ -1,3 +1,5 @@
+@import '/src/vars.scss';
+
 .MainTitle {
   width: 100%;
   height: fit-content;
@@ -14,5 +16,14 @@
 
   &__strong {
     color: var(--primary);
+  }
+
+  @include portrait-orientation($mtab-r) {
+    margin-bottom: 33px;
+
+    &__h1 {
+      font-size: 57px;
+      line-height: 150%;
+    }
   }
 }

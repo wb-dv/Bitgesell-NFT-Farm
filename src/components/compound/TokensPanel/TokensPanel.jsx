@@ -12,19 +12,21 @@ export function TokensPanel() {
   const customSearchClasses = useMemo(() => [styles.TokensPanel__search], []);
 
   return (
-    <div className={styles.TokensPanel}>
-      <div className={styles.TokensPanel__flex}>
-        <Search customWrapperClasses={customSearchClasses}/>
-        {allTokens.map((tokens) => (
-          <TokensList 
-            tokens={tokens} 
-            level={tokens[0].level} 
-            countPts={pts[tokens[0].level]} 
-            key={tokens[0].level} 
-          />
-        ))}
+    <div className={styles.TokensPanel__coin}>
+      <div className={styles.TokensPanel}>
+        <div className={styles.TokensPanel__flex}>
+          <Search customWrapperClasses={customSearchClasses}/>
+          {allTokens.map((tokens) => (
+            <TokensList 
+              tokens={tokens} 
+              level={tokens[0].level} 
+              countPts={pts[tokens[0].level]} 
+              key={tokens[0].level} 
+            />
+          ))}
+        </div>
+        <TotalPts pts={1655} />
       </div>
-      <TotalPts pts={1655} />
     </div>
   );
 }

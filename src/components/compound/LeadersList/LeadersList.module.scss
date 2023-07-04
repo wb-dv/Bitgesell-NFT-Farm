@@ -1,3 +1,5 @@
+@import '/src/vars.scss';
+
 .LeadersList {
   width: 100%;
 
@@ -7,16 +9,28 @@
 
     width: 100%;
     padding-right: 5vw;
+
+    @include portrait-orientation($mtab-r) {
+      padding: 0;
+    }
   }
 
   &__line {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 0.4vw;
+
+    @include portrait-orientation($mtab-r) {
+      margin-bottom: 6px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &__lineItem {
-    margin-bottom: 0.4vw;
     padding: 0.34vw 0;
 
     border-radius: var(--border-radius-search);
@@ -24,15 +38,26 @@
     color: var(--white);
     font-weight: 600;
     text-align: center;
+
+    @include portrait-orientation($mtab-r) {
+      padding: 6px 0;
+    }
   }
 
   &__headerItem {
     margin-bottom: 0.2vw;
-    padding: 0.18vw !important;
+    padding: 0.18vw;
 
     color: var(--white);
     font-weight: 600;
     text-align: center !important;
+
+    @include portrait-orientation($mtab-r) {
+      margin-bottom: 7px;
+      padding: 0;
+
+      font-size: 16px;
+    }
   }
 
   &__leader {
@@ -40,21 +65,52 @@
 
     font-size: 0.6vw;
     color: var(--primary);
+
+    @include portrait-orientation($mtab-r) {
+      font-size: 11px;
+    }
   }
 
   &__adress {
     width: 65%;
     padding-left: 2.2vw;
+    overflow: hidden;
 
     text-align: left;
+
+    &.LeadersList__headerItem {
+      padding: 0.18vw;
+    }
+
+    @include portrait-orientation($mtab-r) {
+      width: 53.6%;
+
+      padding-left: 25px;
+    }
+
+    @include adpt-max($smob-r) {
+      padding-left: 15px;
+    }
+
+    @include adpt-max($xsmob-r) {
+      padding-left: 5px;
+    }
   }
 
   &__points {
-    width: 14%;
+    width: 15%;
+
+    @include portrait-orientation($mtab-r) {
+      width: 14%;
+    }
   }
 
   &__reward {
     width: 20%;
+
+    @include portrait-orientation($mtab-r) {
+      width: 30%;
+    }
   }
 }
 

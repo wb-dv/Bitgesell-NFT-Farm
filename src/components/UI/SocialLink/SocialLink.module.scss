@@ -1,3 +1,5 @@
+@import '/src/vars.scss';
+
 .SocialLink {
   display: block;
   width: 5vw;
@@ -5,6 +7,11 @@
 
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include portrait-orientation {
+    width: 86px;
+    height: 86px;
+  }
 
   &.twitter {
     background-image: url('@img/twitter.png');
@@ -14,6 +21,11 @@
     width: 4.5vw;
     height: 4.5vw;
     background-image: url('@img/g44.png');
+
+    @include portrait-orientation {
+      width: 77px;
+      height: 77px;
+    }
   }
 
   &.discord {

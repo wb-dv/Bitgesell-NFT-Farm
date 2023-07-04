@@ -1,7 +1,8 @@
+@import '/src/vars.scss';
+
 .TotalPts {
   width: 50.5%;
   padding: 0.6vw 0;
-  margin-top: 1.3vw;
 
   position: relative;
   right: 0.65vw;
@@ -14,8 +15,56 @@
   font-size: 1.05vw;
   font-weight: 700;
 
+  @include portrait-orientation($mtab-r) {
+    position: absolute;
+    z-index: 1;
+    bottom: 30px;
+    right: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    width: 30%;
+    height: 14%;
+    padding: 25px 10px;
+
+    border-radius: var(--border-radius-total-pts);
+
+    font-size: 24px;
+
+    transform-style: preserve-3d;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      bottom: 45px;
+      right: -150px;
+
+      width: 343px;
+      height: 343px;
+
+      background-image: url('/src/assets/img/layouts/clapperboard_with_coins.png');
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      background-size: cover;
+
+      transform: translateZ(-1px);
+    }
+  }
+
   &__count {
     color: var(--highlight);
+
+    font-size: 1.1vw;
+
+    @include portrait-orientation($mtab-r) {
+      margin: 0 5px;
+
+      font-size: 28px;
+    }
   }
 }
 

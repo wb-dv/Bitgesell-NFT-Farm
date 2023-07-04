@@ -14,9 +14,14 @@
     align-items: center;
 
     width: 80%;
+
+    @include portrait-orientation {
+      width: 70%;
+    }
   }
 
   @include portrait-orientation {
     width: 100%;
+    margin-top: 48px;
   }
 }

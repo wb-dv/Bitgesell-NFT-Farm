@@ -1,4 +1,10 @@
+@import '/src/vars.scss';
+
 .UserScore {
   width: 100%;
   margin-bottom: 1.6vw;
+
+  @include portrait-orientation($mtab-r) {
+    margin-bottom: 14.6vw;
+  }
 }

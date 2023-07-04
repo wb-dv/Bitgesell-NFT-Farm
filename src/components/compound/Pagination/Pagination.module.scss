@@ -1,0 +1,35 @@
+@import '/src/vars.scss';
+
+.Pagination {
+  display: none;
+  margin-top: 27px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  @include portrait-orientation($mtab-r) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__button {
+    width: 24px;
+    height: 24px;
+
+    background-image: url('/src/assets/img/arrow_circle_left.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &_prev {
+      margin-right: 22px;
+    }
+
+    &_next {
+      margin-left: 22px;
+
+      transform: rotate(180deg);
+    }
+  }
+}
+

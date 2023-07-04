@@ -1,3 +1,5 @@
+@import '/src/vars.scss';
+
 .ByLink {
   padding: 0.8em 3em;
   margin-bottom: 4.3vw;
@@ -12,5 +14,12 @@
 
   &:hover {
     background-color: var(--button-hover);
+  }
+
+  @include portrait-orientation {
+    padding: 20px 86px;
+    margin-bottom: 59px;
+
+    font-size: 32px;
   }
 }

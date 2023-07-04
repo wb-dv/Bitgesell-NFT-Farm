@@ -1,3 +1,44 @@
+:root {
+  --white: #fff;
+  --dark: rgba(31, 28, 89, 1);
+
+  --primary: rgba(140, 85, 255, 1);
+
+  --secondary: rgba(200, 175, 253, 1);
+  --secondary-light: rgba(212, 191, 255, 1);
+
+  --button: rgba(77, 255, 153, 1);
+  --button-hover: rgb(112 255 173);
+
+  --search: rgba(230, 218, 255, 1);
+
+  --highlight: rgba(255, 55, 107, 1);
+
+  --description: rgba(145, 122, 195, 1);
+
+  --score-common: rgba(255, 213, 0, 1);
+  --score-special: rgba(128, 205, 255, 1);
+  --score-rare: rgba(196, 255, 0, 1);
+  --score-unique: rgba(255, 134, 134, 1);
+  --score-legendary: rgba(77, 255, 153, 1);
+
+  --border-radius-huge: 100px;
+  --border-radius-panel: 41px;
+
+  --border-radius-search: 29px;
+
+  --border-radius-total-pts: 21px;
+
+  --font-primary: 'Montserrat';
+  --font-secondary: 'Rammetto One';
+
+  --duration: 0.3s;
+}
+
+$primary: rgba(140, 85, 255, 1);
+$white: #fff;
+$border-radius-huge: 100px;
+
 $left-block-width: 861;
 
 $big-xxl: 1800;
@@ -15,6 +56,7 @@ $xstab-r: 660;
 $bmob-r: 576;
 $mmob-r: 500;
 $smob-r: 400;
+$xsmob-r: 380;
 
 @mixin adpt-min($width) {
   @media (min-width: #{$width}px) {
@@ -28,13 +70,13 @@ $smob-r: 400;
   }
 }
 
-@mixin portrait-orientation() {
-  @media (max-aspect-ratio: 1 / 0.8), (max-width: $mtab-r) {
+@mixin portrait-orientation($width: $mtab-r) {
+  @media (max-width: #{$width}px), (max-aspect-ratio: 1 / 0.9) {
     @content;
   }
 }
 
-@mixin scrollbar($size: 0.6vw, $foreground-color: var(--primary), $background-color: var(--white), $border-radius: var(--border-radius-huge)) {
+@mixin scrollbar($size: 0.6vw, $foreground-color: $primary, $background-color: $white, $border-radius: $border-radius-huge) {
   &::-webkit-scrollbar {
     width: $size;
     height: $size;

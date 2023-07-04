@@ -1,3 +1,5 @@
+@import '/src/vars.scss';
+
 .Search {
   width: 100%;
   padding: 0.6vw 1vw 0.6vw 3vw;
@@ -43,6 +45,31 @@
     background-size: cover;
 
     cursor: pointer;
+  }
+
+  @include portrait-orientation($mtab-r) {
+    padding: 15px 60px;
+
+    font-size: 22px;
+
+    &__wrapper {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &__loupe {
+      left: 24px;
+      top: 25%;
+      width: 25px;
+      height: 25px;
+    }
+
+    &__clear {
+      right: 23px;
+      top: 24%;
+      width: 30px;
+      height: 27px;
+    }
   }
 }
 

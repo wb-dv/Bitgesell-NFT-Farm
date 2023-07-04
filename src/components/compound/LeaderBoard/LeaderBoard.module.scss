@@ -11,6 +11,29 @@
   background-color: var(--secondary);
   border-radius: var(--border-radius-panel);
 
+  @include portrait-orientation($mtab-r) {
+    height: auto;
+    padding: 43px 24px 20px;
+
+    &__title {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -83px;
+        left: -28%;
+
+        display: block;
+        width: 241px;
+        height: 229px;
+
+        background-image: url('/src/assets/img/layouts/coin_low.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
   &::after {
     content: '';
     position: absolute;
@@ -22,10 +45,14 @@
     width: 10.8vw;
     height: 9vw;
 
-    background-image: url('/src/assets/img/coin_mid.png');
+    background-image: url('/src/assets/img/layouts/coin_mid.png');
     background-repeat: no-repeat;
     background-position: -3.4vw -4vw;
     background-size: 17vw 15vw;
+
+    @include portrait-orientation($mtab-r) {
+      content: none;
+    }
   }
 
   &::before {
@@ -39,15 +66,23 @@
     width: 8.8vw;
     height: 7vw;
 
-    background-image: url('/src/assets/img/coin_low.png');
+    background-image: url('/src/assets/img/layouts/coin_low.png');
     background-repeat: no-repeat;
     background-position: -2vw -2vw;
     background-size: 14vw 13vw;
+
+    @include portrait-orientation($mtab-r) {
+      content: none;
+    }
   }
 
   &__wrapper {
     width: 100%;
     margin-bottom: 2vw;
+
+    @include portrait-orientation {
+      margin-bottom: 23px;
+    }
   }
 
   &__scrollContainer {
@@ -61,6 +96,12 @@
     max-width: 37.6%;
     margin-top: 0.3vw;
     margin-bottom: 0.7vw;
+
+    @include portrait-orientation($mtab-r) {
+      max-width: none;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
   }
 }
 
