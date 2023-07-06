@@ -8,9 +8,9 @@ export function Pagination() {
 
   return (
     <div className={styles.Pagination}>
-      <button className={buttonPrevClasses} type="button" />
+      <button className={buttonPrevClasses} type="button" aria-label="previous leaderboard page" />
       {page}.....15
-      <button className={buttonNextClasses} type="button" />
+      <button className={buttonNextClasses} type="button" aria-label="next leaderboard page" />
     </div>
   );
 }

@@ -15,7 +15,7 @@ export function TokensPanel() {
     <div className={styles.TokensPanel__coin}>
       <div className={styles.TokensPanel}>
         <div className={styles.TokensPanel__flex}>
-          <Search customWrapperClasses={customSearchClasses}/>
+          <Search customWrapperClasses={customSearchClasses} label='Search NFT for address'/>
           {allTokens.map((tokens) => (
             <TokensList 
               tokens={tokens} 

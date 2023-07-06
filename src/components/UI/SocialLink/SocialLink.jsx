@@ -10,7 +10,7 @@ export const SocialLink = memo(function SocialLink({ type, customClasses, childr
   const linkClasses = combineClasses([styles.SocialLink, typeLink], customClasses);
 
   return (
-    <a className={linkClasses} {...props} target="_blank" rel="noreferrer">
+    <a className={linkClasses} {...props} target="_blank" rel="noreferrer" aria-label={`link to ${type}`}>
       {children ?? children}
     </a>
   );

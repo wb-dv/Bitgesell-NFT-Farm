@@ -9,8 +9,8 @@ const socials = {
     type: 'twitter',
     href: 'https://twitter.com/bit_gesell',
   },
-  g44: {
-    type: 'g44',
+  site: {
+    type: 'site',
     href: 'https://bitgesell.ca/',
   },
   telegram: {
@@ -26,7 +26,7 @@ export function InfoBlock() {
       <ByLink />
       <div className={styles.InfoBlock__socialLinks}>
         <SocialLink type={socials.twitter.type} href={socials.twitter.href} />
-        <SocialLink type={socials.g44.type} href={socials.g44.href} />
+        <SocialLink type={socials.site.type} href={socials.site.href} />
         <SocialLink type={socials.telegram.type} href={socials.telegram.href} />
       </div>
     </section>

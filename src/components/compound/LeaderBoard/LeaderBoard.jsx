@@ -17,7 +17,7 @@ export function LeaderBoard() {
       <Title customClasses={leaderBoardTitleClasses}>Leader board</Title>
       <div className={styles.LeaderBoard}>
         <div className={styles.LeaderBoard__scrollContainer}>
-          <Search customWrapperClasses={leaderBoardSearchClasses} />
+          <Search customWrapperClasses={leaderBoardSearchClasses} label="Search in leaderboard" />
           <LeadersList />
           <Pagination />
         </div>

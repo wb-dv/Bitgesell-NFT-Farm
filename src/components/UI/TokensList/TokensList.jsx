@@ -23,10 +23,10 @@ export const TokensList = memo(function TokensList({ level, tokens, countPts }) 
 
   return (
     <div className={`${styles.TokensList__wrapper} ${levelClass}`}>
-      <h4 className={styles.TokensList__title}>
+      <h3 className={styles.TokensList__title}>
         {`${level} `}
         <strong className={`${styles.TokensList__countPts} ${levelClass}`}>{countPts} pts</strong>
-      </h4>
+      </h3>
       <ul className={styles.TokensList}>
         {Array.isArray(tokens) && 
           tokens.map((token, i) => (

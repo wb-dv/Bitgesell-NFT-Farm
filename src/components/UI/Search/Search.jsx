@@ -1,11 +1,12 @@
-import { memo, useRef } from 'react';
+import { memo, useRef, useId } from 'react';
 
 import { combineClasses } from '@helpers/combineClasses';
 
 import styles from './Search.module.scss';
 
-export const Search = memo(function Search({ customInputClasses, customWrapperClasses }) {
+export const Search = memo(function Search({ customInputClasses, customWrapperClasses, label }) {
   const searchRef = useRef();
+  const searchId = useId();
 
   const searchInputClasses = combineClasses([styles.Search], customInputClasses);
   const searchWrapperClasses = combineClasses([styles.Search__wrapper], customWrapperClasses);
@@ -22,9 +23,12 @@ export const Search = memo(function Search({ customInputClasses, customWrapperCl
 
   return (
     <div className={searchWrapperClasses}>
-      <button className={styles.Search__loupe} type="button" />
-      <input className={searchInputClasses} ref={searchRef} onKeyUp={searchAdress} />
-      <button className={styles.Search__clear} type="button" onClick={clearInput} />
+      <button className={styles.Search__loupe} type="button" aria-label="search" />
+      <label className={styles.Search__hiddenLabel} htmlFor={searchId}>
+        {label}
+      </label>
+      <input className={searchInputClasses} id={searchId} ref={searchRef} onKeyUp={searchAdress} />
+      <button className={styles.Search__clear} type="button" onClick={clearInput} aria-label="clear input" />
     </div>
   );
 });
