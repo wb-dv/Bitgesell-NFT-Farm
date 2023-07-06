@@ -13,9 +13,9 @@ const socials = {
     type: 'g44',
     href: 'https://bitgesell.ca/',
   },
-  discord: {
-    type: 'discord',
-    href: 'https://discord.gg/4pz9rN7QCp',
+  telegram: {
+    type: 'telegram',
+    href: 'https://t.me/bitgesellofficial',
   },
 };
 
@@ -27,7 +27,7 @@ export function InfoBlock() {
       <div className={styles.InfoBlock__socialLinks}>
         <SocialLink type={socials.twitter.type} href={socials.twitter.href} />
         <SocialLink type={socials.g44.type} href={socials.g44.href} />
-        <SocialLink type={socials.discord.type} href={socials.discord.href} />
+        <SocialLink type={socials.telegram.type} href={socials.telegram.href} />
       </div>
     </section>
   );

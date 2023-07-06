@@ -14,27 +14,27 @@ export const pts = {
   Legendary: 56,
 };
 
-const genId = () => Math.random() * Date.now();
+export const genId = () => Math.random() * Date.now();
 
 export const allTokens = [
   [
-    { count: 1, id: genId(), level: levels.common, multi: false },
-    { count: 3, id: genId(), level: levels.common },
+    { count: 200, id: genId(), level: levels.common },
+    { count: 200, id: genId(), level: levels.common },
     { count: 5, id: genId(), level: levels.common },
     { count: 1, id: genId(), level: levels.common },
-    { count: 2, id: genId(), level: levels.common, multi: true },
+    { count: 2, id: genId(), level: levels.common },
     { count: 1, id: genId(), level: levels.common },
     { count: 2, id: genId(), level: levels.common },
     { count: 3, id: genId(), level: levels.common },
   ],
   [
-    { count: 1, id: genId(), level: levels.special, multi: true },
+    { count: 1, id: genId(), level: levels.special },
     { count: 3, id: genId(), level: levels.special },
-    { count: 5, id: genId(), level: levels.special },
-    { count: 1, id: genId(), level: levels.special, multi: false },
+    { count: 75, id: genId(), level: levels.special },
+    { count: 75, id: genId(), level: levels.special },
     { count: 2, id: genId(), level: levels.special },
     { count: 1, id: genId(), level: levels.special },
-    { count: 2, id: genId(), level: levels.special, multi: true },
+    { count: 2, id: genId(), level: levels.special },
     { count: 3, id: genId(), level: levels.special },
     { count: 1, id: genId(), level: levels.special },
     { count: 3, id: genId(), level: levels.special, multi: true },

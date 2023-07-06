@@ -12,7 +12,7 @@
 
   text-transform: uppercase;
   text-align: center;
-  font-size: 1.05vw;
+  font-size: 1.4vw;
   font-weight: 700;
 
   @include portrait-orientation($mtab-r) {
@@ -58,7 +58,7 @@
   &__count {
     color: var(--highlight);
 
-    font-size: 1.1vw;
+    font-size: 1.52vw;
 
     @include portrait-orientation($mtab-r) {
       margin: 0 5px;

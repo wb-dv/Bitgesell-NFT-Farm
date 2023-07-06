@@ -22,5 +22,12 @@
   &__strong {
     font-weight: 800;
   }
+
+  &__link {
+    transition: color var(--duration);
+    &:hover {
+      color: var(--secondary);
+    }
+  }
 }
 
