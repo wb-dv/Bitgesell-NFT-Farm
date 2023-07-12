@@ -6,7 +6,8 @@
       "@UI/*": ["./src/components/UI/*"],
       "@compound/*": ["./src/components/compound/*"],
       "@img/*": ["./src/assets/img/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@helpers/*": ["./src/helpers/*"],
+      "@api/*": ["./src/api/*"]
     }
   },
   "exclude": ["node_modules", "build"]

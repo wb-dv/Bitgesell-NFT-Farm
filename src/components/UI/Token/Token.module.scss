@@ -43,30 +43,9 @@
   }
 
   &__Common {
-    // &:nth-child(-n + 4) {
-    //   @include token-highlight;
-    // }
-    // @include token-highlight;
-
     @for $i from 1 through 8 {
       &_#{$i} {
         background-image: url('/src/assets/img/tokens/common_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
-
-        // @if $i == 1 {
-        //   &::before {
-        //     content: 'x 1.5';
-        //     width: max-content;
-
-        //     position: absolute;
-        //     bottom: -76%;
-        //     left: 5vw;
-
-        //     @include token-highlight;
-
-        //     color: var(--white);
-        //     font-size: 1vw;
-        //   }
-        // }
       }
     }
   }

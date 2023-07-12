@@ -4,28 +4,24 @@ import { Token } from '../Token/Token';
 
 import styles from './TokensList.module.scss';
 
-const testGroup = {
-  Common: 2,
-  Special: 5,
-  Rare: 5,
+const multiLevels = {
+  Common: true,
+  Special: true,
+  Rare: true,
 };
 
 export const TokensList = memo(function TokensList({ level, tokens, countPts }) {
   const levelClass = styles[level];
 
-  const tokenCustomClasses = useMemo(() => 
-    (level === level ? 
-      [styles.tokenHighlight, styles[`tokenHighlight__${level}_${Math.ceil(Math.random() * testGroup[level])}`]] 
-      : 
-      []
-    ),
-  [level]);
+  const tokenCustomClasses = useMemo(() => (
+    [styles.tokenHighlight, styles[`tokenHighlight__${level}`]]
+  ), []);
 
   return (
     <div className={`${styles.TokensList__wrapper} ${levelClass}`}>
       <h3 className={styles.TokensList__title}>
-        {`${level} `}
-        <strong className={`${styles.TokensList__countPts} ${levelClass}`}>{countPts} pts</strong>
+        {level}
+        <strong className={`${styles.TokensList__countPts} ${levelClass}`}> {countPts} pts</strong>
       </h3>
       <ul className={styles.TokensList}>
         {Array.isArray(tokens) && 
@@ -34,8 +30,8 @@ export const TokensList = memo(function TokensList({ level, tokens, countPts }) 
               idx={i} 
               count={token.count} 
               level={level} 
-              key={token.id} 
-              customClasses={tokenCustomClasses} 
+              key={token.id === 'NO_VALUE' ? token.index : token.id} 
+              customClasses={token.is_full && multiLevels[level] ? tokenCustomClasses : ''} 
             />
           ))
         }

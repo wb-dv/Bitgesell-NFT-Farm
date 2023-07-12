@@ -2,7 +2,6 @@
 
 .TokensList {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
 
   @include portrait-orientation($mtab-r) {
@@ -114,144 +113,26 @@
     }
 
     &__Common {
-      &_1 {
-        @for $i from 1 to 5 {
-          &:nth-child(#{$i}) {
-            @include token-highlight;
+      @include token-highlight;
 
-            @if $i == 1 {
-              @include token-multi;
-            }
-          }
-        }
-      }
-
-      &_2 {
-        @for $i from 5 to 9 {
-          &:nth-child(#{$i}) {
-            @include token-highlight;
-
-            @if $i == 5 {
-              @include token-multi;
-            }
-          }
-        }
+      &:nth-child(4n + 1) {
+        @include token-multi;
       }
     }
 
     &__Special {
-      &_1 {
-        @for $i from 1 to 4 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-special-color);
+      @include token-highlight($multi-special-color);
 
-            @if $i == 1 {
-              @include token-multi($multi-special, $multi-special-color);
-            }
-          }
-        }
-      }
-      &_2 {
-        @for $i from 4 to 7 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-special-color);
-
-            @if $i == 4 {
-              @include token-multi($multi-special, $multi-special-color);
-            }
-          }
-        }
-      }
-      &_3 {
-        @for $i from 7 to 10 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-special-color);
-
-            @if $i == 7 {
-              @include token-multi($multi-special, $multi-special-color);
-            }
-          }
-        }
-      }
-      &_4 {
-        @for $i from 10 to 13 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-special-color);
-
-            @if $i == 10 {
-              @include token-multi($multi-special, $multi-special-color);
-            }
-          }
-        }
-      }
-      &_5 {
-        @for $i from 13 to 16 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-special-color);
-
-            @if $i == 13 {
-              @include token-multi($multi-special, $multi-special-color);
-            }
-          }
-        }
+      &:nth-child(3n + 1) {
+        @include token-multi($multi-special, $multi-special-color);
       }
     }
 
     &__Rare {
-      &_1 {
-        @for $i from 1 to 3 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-rare-color);
+      @include token-highlight($multi-rare-color);
 
-            @if $i == 1 {
-              @include token-multi($multi-rare, $multi-rare-color);
-            }
-          }
-        }
-      }
-      &_2 {
-        @for $i from 3 to 5 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-rare-color);
-
-            @if $i == 3 {
-              @include token-multi($multi-rare, $multi-rare-color);
-            }
-          }
-        }
-      }
-      &_3 {
-        @for $i from 5 to 7 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-rare-color);
-
-            @if $i == 5 {
-              @include token-multi($multi-rare, $multi-rare-color);
-            }
-          }
-        }
-      }
-      &_4 {
-        @for $i from 7 to 9 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-rare-color);
-
-            @if $i == 7 {
-              @include token-multi($multi-rare, $multi-rare-color);
-            }
-          }
-        }
-      }
-      &_5 {
-        @for $i from 9 to 11 {
-          &:nth-child(#{$i}) {
-            @include token-highlight($multi-rare-color);
-
-            @if $i == 9 {
-              @include token-multi($multi-rare, $multi-rare-color);
-            }
-          }
-        }
+      &:nth-child(2n - 1) {
+        @include token-multi($multi-rare, $multi-rare-color);
       }
     }
   }

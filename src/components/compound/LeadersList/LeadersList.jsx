@@ -1,7 +1,21 @@
+import { useQuery } from '@tanstack/react-query';
+import { getOwners } from '@api';
+
+import { Spinner } from '@UI/Spinner/Spinner';
+
 import styles from './LeadersList.module.scss';
-import { leaders } from './testLeadersData';
 
 export function LeadersList() {
+  const {
+    data: leaders,
+    isLoading,
+    isSuccess,
+  } = useQuery({
+    queryFn: getOwners,
+    queryKey: ['leaders'],
+    refetchInterval: 3 * 60 * 1000,
+  });
+
   const leaderClasses = [styles.LeadersList__lineItem, styles.LeadersList__leader].join(' ');
 
   const leaderAdressClasses = [leaderClasses, styles.LeadersList__adress].join(' ');
@@ -18,15 +32,19 @@ export function LeadersList() {
         <div className={`${styles.LeadersList__headerItem} ${styles.LeadersList__reward}`}>Reward</div>
       </header>
       <ul className={styles.LeadersList}>
-        {Array.isArray(leaders) &&
+        {isSuccess ? (
           leaders.map((leader) => (
-            <li className={styles.LeadersList__line} key={leader.id}>
-              <div className={leaderAdressClasses}>{leader.adress}</div>
-              <div className={leaderPointsClasses}>{leader.points}</div>
-              <div className={leaderRewardClasses}>{leader.reward} WBGL</div>
+            <li className={styles.LeadersList__line} key={leader.address}>
+              <div className={leaderAdressClasses}>{leader.address}</div>
+              <div className={leaderPointsClasses}>{leader.score.toFixed(2)}</div>
+              <div className={leaderRewardClasses}>{leader.reward.toFixed(3)} WBGL</div>
             </li>
-          ))}
+          ))
+        ) : (
+          <div className={styles.LeadersList__noOwners}>No owners</div>
+        )}
       </ul>
+      {isLoading && <Spinner />}
     </div>
   );
 }

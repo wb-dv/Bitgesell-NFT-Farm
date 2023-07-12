@@ -14,6 +14,7 @@ export default defineConfig({
       '@UI': path.resolve(__dirname, './src/components/UI'),
       '@compound': path.resolve(__dirname, './src/components/compound'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
+      '@api': path.resolve(__dirname, './src/api'),
     },
   },
   css: {

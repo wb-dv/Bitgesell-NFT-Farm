@@ -9,7 +9,9 @@ export const WBGLCounter = memo(function WBGLCounter({ count, customClasses }) {
   return (
     <header className={WBGLCounterClasses}>
       <h2 className={styles.WBGLCounter__title}>
-        <strong className={styles.WBGLCounter__count}>{count}</strong>wbgl
+        <strong className={styles.WBGLCounter__count}>
+          {typeof count === 'number' ? count.toFixed(0) : count} 
+        </strong> wbgl
       </h2>
     </header>
   );

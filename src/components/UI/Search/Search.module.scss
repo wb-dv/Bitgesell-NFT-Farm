@@ -2,10 +2,12 @@
 
 .Search {
   width: 100%;
-  padding: 0.6vw 1vw 0.6vw 3vw;
+  padding: 0.6vw 2.5vw 0.6vw 3vw;
 
   border-radius: var(--border-radius-search);
   background-color: var(--search);
+
+  transition: box-shadow var(--duration);
 
   &__wrapper {
     position: relative;
@@ -60,6 +62,10 @@
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+  }
+
+  &__error {
+    box-shadow: 0 0 10px var(--highlight);
   }
 
   @include portrait-orientation($mtab-r) {

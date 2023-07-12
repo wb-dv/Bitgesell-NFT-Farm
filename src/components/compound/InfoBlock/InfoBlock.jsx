@@ -1,3 +1,6 @@
+import { useQuery } from '@tanstack/react-query';
+import { getWBGL } from '@api';
+
 import { SocialLink } from '@UI/SocialLink/SocialLink';
 import { ByLink } from '@UI/ByLink/ByLink';
 import { WBGLCounter } from '@UI/WBGLCounter/WBGLCounter';
@@ -20,9 +23,19 @@ const socials = {
 };
 
 export function InfoBlock() {
+  const {
+    data: WBGLCount,
+    isLoading,
+    isSuccess,
+  } = useQuery({
+    queryFn: getWBGL,
+    queryKey: ['WBGL'],
+    refetchInterval: 3 * 60 * 1000,
+  });
+
   return (
     <section className={styles.InfoBlock}>
-      <WBGLCounter count={567} />
+      <WBGLCounter count={isLoading ? '?' : isSuccess ? WBGLCount : 0} />
       <ByLink />
       <div className={styles.InfoBlock__socialLinks}>
         <SocialLink type={socials.twitter.type} href={socials.twitter.href} />
