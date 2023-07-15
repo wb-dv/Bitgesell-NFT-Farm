@@ -86,8 +86,10 @@
 
     @include portrait-orientation($mtab-r) {
       width: 53.6%;
-
       padding-left: 25px;
+      padding-right: 25px;
+
+      text-overflow: ellipsis;
     }
 
     @include adpt-max($smob-r) {
@@ -115,18 +117,10 @@
     }
   }
 
-  &__noOwners {
-    width: 100%;
-    margin: 2vw auto;
-
-    text-align: center;
-    font-size: 1.5vw;
-    font-weight: 600;
-    color: var(--primary);
-
-    @include portrait-orientation {
-      font-size: 18px;
-    }
+  &__highlight {
+    box-shadow: 0 0 30px var(--primary);
+    background-color: var(--primary);
+    color: var(--white);
   }
 }
 

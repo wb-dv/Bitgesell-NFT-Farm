@@ -92,6 +92,14 @@
     overflow: auto;
 
     @include scrollbar;
+
+    @include portrait-orientation {
+      overflow: visible;
+    }
+
+    &_noScroll {
+      overflow: visible;
+    }
   }
 
   &__search {
@@ -103,6 +111,20 @@
       max-width: none;
       margin-top: 0;
       margin-bottom: 20px;
+    }
+  }
+
+  &__noOwners {
+    width: 100%;
+    margin: 2vw auto;
+
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 600;
+    color: var(--primary);
+
+    @include portrait-orientation {
+      font-size: 18px;
     }
   }
 }

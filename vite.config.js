@@ -15,6 +15,7 @@ export default defineConfig({
       '@compound': path.resolve(__dirname, './src/components/compound'),
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@api': path.resolve(__dirname, './src/api'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
     },
   },
   css: {

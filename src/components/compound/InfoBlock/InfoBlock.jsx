@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getWBGL } from '@api';
+import { baseRefetchInterval, getWBGL } from '@api';
 
 import { SocialLink } from '@UI/SocialLink/SocialLink';
 import { ByLink } from '@UI/ByLink/ByLink';
@@ -30,7 +30,7 @@ export function InfoBlock() {
   } = useQuery({
     queryFn: getWBGL,
     queryKey: ['WBGL'],
-    refetchInterval: 3 * 60 * 1000,
+    refetchInterval: baseRefetchInterval,
   });
 
   return (

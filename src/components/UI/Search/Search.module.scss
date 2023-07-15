@@ -4,10 +4,11 @@
   width: 100%;
   padding: 0.6vw 2.5vw 0.6vw 3vw;
 
+  border: 1px solid transparent;
   border-radius: var(--border-radius-search);
   background-color: var(--search);
 
-  transition: box-shadow var(--duration);
+  transition: border var(--duration);
 
   &__wrapper {
     position: relative;
@@ -21,7 +22,7 @@
     position: absolute;
     z-index: 1;
     left: 1.1vw;
-    top: 0.5vw;
+    top: 0.55vw;
 
     width: 1.1vw;
     height: 1.1vw;
@@ -37,7 +38,7 @@
     position: absolute;
     z-index: 1;
     right: 1vw;
-    top: 0.5vw;
+    top: 0.55vw;
 
     width: 1.3vw;
     height: 1.3vw;
@@ -65,11 +66,12 @@
   }
 
   &__error {
-    box-shadow: 0 0 10px var(--highlight);
+    border: 1px solid var(--highlight);
   }
 
   @include portrait-orientation($mtab-r) {
     padding: 15px 60px;
+    margin-left: 0;
 
     border-radius: var(--border-radius-search-mob);
 

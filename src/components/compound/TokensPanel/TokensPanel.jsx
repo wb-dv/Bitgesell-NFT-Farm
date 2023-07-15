@@ -1,14 +1,14 @@
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { getNFTsInfo } from '@api';
 
 import { separateNFTsByLevel } from '@helpers/separateNFTsByLevel';
+import { placeholderTokensInfo } from './testTokensData';
 
 import { Search } from '@UI/Search/Search';
 import { TokensList } from '@UI/TokensList/TokensList';
 import { TotalPts } from '@UI/TotalPts/TotalPts';
-import { TokensPlaceholder } from '@UI/TokensPlaceholder/TokensPlaceholder';
 import { Spinner } from '@UI/Spinner/Spinner';
 
 import styles from './TokensPanel.module.scss';
@@ -18,7 +18,7 @@ export function TokensPanel() {
 
   const queryClient = useQueryClient();
 
-  const {mutate: getNFTs, data, isLoading, isSuccess} = useMutation({
+  const {mutate: getNFTs, data: realInfo, isLoading, isSuccess} = useMutation({
     mutationFn: getNFTsInfo,
     mutationKey: ['nfts-info'],
     onSuccess: (data) => {
@@ -26,6 +26,8 @@ export function TokensPanel() {
       queryClient.setQueryData(['nfts-info'], data);
     }
   })
+
+  const data = isSuccess ? realInfo : placeholderTokensInfo;
 
   const validAddress = useCallback((address) => {
     return address.trim().length === 42;
@@ -41,20 +43,19 @@ export function TokensPanel() {
             searchFn={getNFTs}
             validFn={validAddress}
           />
-          {isSuccess ? (
-              data.nfts.map(nftByLevel => (
-                <TokensList 
-                  tokens={nftByLevel} 
-                  level={nftByLevel[0].level} 
-                  countPts={data.pts_by_grade[nftByLevel[0].level]} 
-                  key={nftByLevel[0].level}
-                />
-              ))
-            ) : <TokensPlaceholder />
+          {
+            data.nfts.map(nftByLevel => (
+              <TokensList 
+                tokens={ nftByLevel } 
+                level={ nftByLevel[0].level } 
+                countPts={ data.pts_by_grade[nftByLevel[0].level] ?? 0 } 
+                key={ nftByLevel[0].level }
+              />
+            ))
           }
         </div>
-        <TotalPts pts={isLoading ? '?' : isSuccess ? data.sum_pts : 0} />
-        {isLoading && <Spinner />}
+        <TotalPts pts={ isLoading ? '?' : isSuccess ? data.sum_pts : 0 } />
+        { isLoading && <Spinner /> }
       </div>
     </div>
   );

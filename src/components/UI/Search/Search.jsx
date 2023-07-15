@@ -4,7 +4,14 @@ import { combineClasses } from '@helpers/combineClasses';
 
 import styles from './Search.module.scss';
 
-export const Search = memo(function Search({ customInputClasses, customWrapperClasses, label, searchFn = () => {}, validFn = () => true }) {
+export const Search = memo(function Search({ 
+  customInputClasses, 
+  customWrapperClasses, 
+  label, 
+  searchFn = () => {}, 
+  validFn = () => true, 
+  onClear = () => {} 
+}) {
   const searchRef = useRef();
   const searchId = useId();
   const [validError, setValidError] = useState(false);
@@ -12,11 +19,15 @@ export const Search = memo(function Search({ customInputClasses, customWrapperCl
   const searchInputClasses = combineClasses([styles.Search, validError ? styles.Search__error : ''], customInputClasses);
   const searchWrapperClasses = combineClasses([styles.Search__wrapper], customWrapperClasses);
 
-  const resetValidError = () => {
-    if (searchRef.current.value === '') setValidError(false);
+  const resetValidErrorAndSearch = () => {
+    if(searchRef.current.value === '') {
+      onClear();
+      setValidError(false);
+    };
   };
 
   const clearInput = () => {
+    onClear();
     searchRef.current.value = '';
     setValidError(false);
   };
@@ -24,7 +35,6 @@ export const Search = memo(function Search({ customInputClasses, customWrapperCl
   const search = () => {
     if (validFn(searchRef.current.value)) {
       searchFn(searchRef.current.value);
-      clearInput();
     } else {
       setValidError(true);
     }
@@ -36,12 +46,29 @@ export const Search = memo(function Search({ customInputClasses, customWrapperCl
 
   return (
     <div className={searchWrapperClasses}>
-      <button className={styles.Search__loupe} type="button" aria-label="search" onClick={search} />
+      <button 
+        className={styles.Search__loupe} 
+        type="button"
+        aria-label="search" 
+        onClick={search} 
+      />
       <label className={styles.Search__hiddenLabel} htmlFor={searchId}>
         {label}
       </label>
-      <input className={searchInputClasses} id={searchId} ref={searchRef} onKeyUp={searchOnEnter} onBlur={resetValidError} />
-      <button className={styles.Search__clear} type="button" onClick={clearInput} aria-label="clear input" />
+      <input
+        className={searchInputClasses} 
+        id={searchId} 
+        ref={searchRef} 
+        onKeyUp={searchOnEnter} 
+        onInput={resetValidErrorAndSearch}
+        name="search-input" 
+      />
+      <button 
+        className={styles.Search__clear} 
+        type="button" 
+        onClick={clearInput} 
+        aria-label="clear input" 
+      />
     </div>
   );
 });

@@ -1,17 +1,13 @@
 @import '/src/vars.scss';
 
 .Pagination {
-  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 27px;
 
   font-size: 16px;
   font-weight: 700;
-
-  @include portrait-orientation($mtab-r) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
   &__button {
     width: 24px;
