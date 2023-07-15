@@ -35,6 +35,7 @@ export const Search = memo(function Search({
   const search = () => {
     if (validFn(searchRef.current.value)) {
       searchFn(searchRef.current.value);
+      setValidError(false);
     } else {
       setValidError(true);
     }
