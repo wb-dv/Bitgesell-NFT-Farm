@@ -16,7 +16,6 @@ export function LeadersList({ leaders, fetchMoreFn, observerRootRef, isOwnerFoun
       const callback = (entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('fetchMoreFn ???');
             fetchMoreFn();
           }
         });
