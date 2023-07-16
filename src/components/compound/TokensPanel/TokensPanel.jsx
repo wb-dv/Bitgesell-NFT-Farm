@@ -3,7 +3,10 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { getNFTsInfo } from '@api';
 
+import { useValidAddress } from '@hooks/useValidAddress';
+
 import { separateNFTsByLevel } from '@helpers/separateNFTsByLevel';
+
 import { placeholderTokensInfo } from './testTokensData';
 
 import { Search } from '@UI/Search/Search';
@@ -18,7 +21,13 @@ export function TokensPanel() {
 
   const queryClient = useQueryClient();
 
-  const {mutate: getNFTs, data: realInfo, isLoading, isSuccess} = useMutation({
+  const {
+    mutate: getNFTs, 
+    data: realInfo, 
+    isLoading, 
+    isSuccess, 
+    reset: resetSearchNfts
+  } = useMutation({
     mutationFn: getNFTsInfo,
     mutationKey: ['nfts-info'],
     onSuccess: (data) => {
@@ -29,9 +38,7 @@ export function TokensPanel() {
 
   const data = isSuccess ? realInfo : placeholderTokensInfo;
 
-  const validAddress = useCallback((address) => {
-    return address.trim().length === 42;
-  }, [])
+  const validAddress = useValidAddress();
 
   return (
     <div className={styles.TokensPanel__coin}>
@@ -42,6 +49,7 @@ export function TokensPanel() {
             label='Search NFT for address' 
             searchFn={getNFTs}
             validFn={validAddress}
+            onClear={resetSearchNfts}
           />
           {
             data.nfts.map(nftByLevel => (

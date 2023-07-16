@@ -1,4 +1,4 @@
-const basePath = 'http://95.217.123.179:8080';
+const basePath = 'http://185.105.88.18:8080';
 
 export const baseRefetchInterval = 3 * 60 * 1000;
 
