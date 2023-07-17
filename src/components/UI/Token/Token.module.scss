@@ -51,7 +51,7 @@
   }
 
   &__Special {
-    @for $i from 1 to 15 {
+    @for $i from 1 through 15 {
       &_#{$i} {
         background-image: url('/src/assets/img/tokens/special_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
       }
@@ -59,7 +59,7 @@
   }
 
   &__Rare {
-    @for $i from 1 to 10 {
+    @for $i from 1 through 10 {
       &_#{$i} {
         background-image: url('/src/assets/img/tokens/rare_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
       }
@@ -67,7 +67,7 @@
   }
 
   &__Unique {
-    @for $i from 1 to 4 {
+    @for $i from 1 through 4 {
       &_#{$i} {
         background-image: url('/src/assets/img/tokens/unique_#{$i}.png'), url('/src/assets/img/token__placeholder.png');
       }

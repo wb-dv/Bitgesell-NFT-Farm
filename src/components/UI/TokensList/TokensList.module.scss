@@ -95,12 +95,14 @@
       font-size: 30px;
 
       &.Legendary {
-        top: auto;
+        top: 35px;
         right: auto;
         left: 47px;
         bottom: -80%;
 
-        max-width: 98px;
+        max-width: none;
+
+        line-height: 100%;
       }
     }
   }
