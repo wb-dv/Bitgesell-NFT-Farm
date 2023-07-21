@@ -8,7 +8,6 @@
     flex-direction: column;
 
     width: 100%;
-    padding-right: 5vw;
 
     @include portrait-orientation($mtab-r) {
       padding: 0;
@@ -27,6 +26,14 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &.header {
+      padding-right: 5vw;
+
+      @include portrait-orientation {
+        padding-right: 0;
+      }
     }
   }
 
@@ -121,6 +128,24 @@
     box-shadow: 0 0 30px var(--primary);
     background-color: var(--primary);
     color: var(--white);
+  }
+
+  &__scrollContainer {
+    height: 8.5vw;
+    overflow: auto;
+    padding-right: 4.4vw;
+
+    @include scrollbar;
+
+    @include portrait-orientation {
+      overflow: visible;
+      padding-right: 0;
+      height: auto;
+    }
+
+    &_noScroll {
+      overflow: visible;
+    }
   }
 }
 

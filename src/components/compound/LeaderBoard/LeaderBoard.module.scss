@@ -87,21 +87,6 @@
     }
   }
 
-  &__scrollContainer {
-    height: 100%;
-    overflow: auto;
-
-    @include scrollbar;
-
-    @include portrait-orientation {
-      overflow: visible;
-    }
-
-    &_noScroll {
-      overflow: visible;
-    }
-  }
-
   &__search {
     max-width: 37.6%;
     margin-top: 0.3vw;

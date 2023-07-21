@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useEffect } from 'react';
+import { useMemo } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { getNFTsInfo } from '@api';
@@ -22,19 +22,19 @@ export function TokensPanel() {
   const queryClient = useQueryClient();
 
   const {
-    mutate: getNFTs, 
-    data: realInfo, 
-    isLoading, 
-    isSuccess, 
-    reset: resetSearchNfts
+    mutate: getNFTs,
+    data: realInfo,
+    isLoading,
+    isSuccess,
+    reset: resetSearchNfts,
   } = useMutation({
     mutationFn: getNFTsInfo,
     mutationKey: ['nfts-info'],
     onSuccess: (data) => {
       data.nfts = separateNFTsByLevel(data.nfts);
       queryClient.setQueryData(['nfts-info'], data);
-    }
-  })
+    },
+  });
 
   const data = isSuccess ? realInfo : placeholderTokensInfo;
 
@@ -44,26 +44,24 @@ export function TokensPanel() {
     <div className={styles.TokensPanel__coin}>
       <div className={styles.TokensPanel}>
         <div className={styles.TokensPanel__flex}>
-          <Search 
-            customWrapperClasses={customSearchClasses} 
-            label='Search NFT for address' 
+          <Search
+            customWrapperClasses={customSearchClasses}
+            label="Search NFT for address"
             searchFn={getNFTs}
             validFn={validAddress}
             onClear={resetSearchNfts}
           />
-          {
-            data.nfts.map(nftByLevel => (
-              <TokensList 
-                tokens={ nftByLevel } 
-                level={ nftByLevel[0].level } 
-                countPts={ data.pts_by_grade[nftByLevel[0].level] ?? 0 } 
-                key={ nftByLevel[0].level }
-              />
-            ))
-          }
+          {data.nfts.map((nftByLevel) => (
+            <TokensList
+              tokens={nftByLevel}
+              level={nftByLevel[0].level}
+              countPts={data.pts_by_grade[nftByLevel[0].level] ?? 0}
+              key={nftByLevel[0].level}
+            />
+          ))}
         </div>
-        <TotalPts pts={ isLoading ? '?' : isSuccess ? data.sum_pts : 0 } />
-        { isLoading && <Spinner /> }
+        <TotalPts pts={isLoading ? '?' : isSuccess ? data.sum_pts : 0} />
+        {isLoading && <Spinner />}
       </div>
     </div>
   );

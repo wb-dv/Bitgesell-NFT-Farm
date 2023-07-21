@@ -23,5 +23,14 @@ export default defineConfig({
       plugins: [autoprefixer({})],
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetsInfo) => {
+          return /.\.css$/.test(assetsInfo.name) ? `assets/[name]-[hash].[ext]` : `assets/[name].[ext]`;
+        },
+      },
+    },
+  },
 });
 

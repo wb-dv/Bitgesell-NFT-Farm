@@ -1,7 +1,14 @@
 import { memo } from 'react';
 import styles from './Pagination.module.scss';
 
-export const Pagination = memo(function Pagination({fetchPrevFn, fetchNextFn, pages, currPage, prevBthDisabled, nextBthDisabled}) {
+export const Pagination = memo(function Pagination({
+  fetchPrevFn, 
+  fetchNextFn, 
+  pages, 
+  currPage, 
+  prevBthDisabled, 
+  nextBthDisabled
+}) {
   const buttonPrevClasses = [styles.Pagination__button, styles.Pagination__button_prev].join(' ');
   const buttonNextClasses = [styles.Pagination__button, styles.Pagination__button_next].join(' ');
 

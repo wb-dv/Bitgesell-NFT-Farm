@@ -10,7 +10,7 @@ import styles from './InfoBlock.module.scss';
 const socials = {
   twitter: {
     type: 'twitter',
-    href: 'https://twitter.com/bit_gesell',
+    href: 'https://twitter.com/myluckbitcoin',
   },
   site: {
     type: 'site',
@@ -38,9 +38,18 @@ export function InfoBlock() {
       <WBGLCounter count={isLoading ? '?' : isSuccess ? WBGLCount : 0} />
       <ByLink />
       <div className={styles.InfoBlock__socialLinks}>
-        <SocialLink type={socials.twitter.type} href={socials.twitter.href} />
-        <SocialLink type={socials.site.type} href={socials.site.href} />
-        <SocialLink type={socials.telegram.type} href={socials.telegram.href} />
+        <SocialLink
+          type={socials.twitter.type}
+          href={socials.twitter.href}
+        />
+        <SocialLink
+          type={socials.site.type}
+          href={socials.site.href}
+        />
+        <SocialLink
+          type={socials.telegram.type}
+          href={socials.telegram.href}
+        />
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 
 import { useMatchMedia } from '@hooks/useMatchMedia';
 import { useLeadersPagination } from '@hooks/useLeadersPagination';
@@ -17,25 +17,19 @@ import { Spinner } from '@UI/Spinner/Spinner';
 import styles from './LeaderBoard.module.scss';
 
 export function LeaderBoard() {
-  const observerRootRef = useRef();
-
   const { isPortrait } = useMatchMedia();
 
+  const { pagesCount, pagesCountLoading, pagesCountGetted } = usePagesCount();
+
   const { 
-    pagesCount,
-    pagesCountLoading,
-    pagesCountGetted 
-  } = usePagesCount()
+    startOwnerSearch, 
+    foundOwner, 
+    isSearchingOwner, 
+    isOwnerFound, 
+    resetSearsch 
+  } = useSearchOwner();
 
-  const {
-    startOwnerSearch,
-    foundOwner,
-    isSearchingOwner,
-    isOwnerFound,
-    resetSearsch
-  } = useSearchOwner()
-
-  const validAddress = useValidAddress()
+  const validAddress = useValidAddress();
 
   const { 
     leadersPage, 
@@ -45,14 +39,14 @@ export function LeaderBoard() {
     isPreviousData, 
     setNextPage, 
     setPrevPage 
-  } = useLeadersPagination(pagesCount, (!isPortrait || !pagesCountGetted));
+  } = useLeadersPagination(pagesCount, !isPortrait || !pagesCountGetted);
 
-  const {
+  const { 
     allLeaders, 
     allLeadersLoaded, 
     allLeadersLoading, 
-    fetchMoreLeaders
-  } = useInfiniteLeaders(pagesCount, (isPortrait || !pagesCountGetted));
+    fetchMoreLeaders 
+  } = useInfiniteLeaders(pagesCount, isPortrait || !pagesCountGetted);
 
   const leaders = isOwnerFound ? foundOwner : isPortrait ? leadersPage : allLeaders;
 
@@ -64,44 +58,37 @@ export function LeaderBoard() {
   const leaderBoardSearchClasses = useMemo(() => [styles.LeaderBoard__search], []);
   const leaderBoardTitleClasses = useMemo(() => [styles.LeaderBoard__title], []);
 
-  const scrollContainerClasses = [
-    styles.LeaderBoard__scrollContainer,
-    isOwnerFound ? styles.LeaderBoard__scrollContainer_noScroll : '' 
-  ].join(' ');
-
   return (
     <section className={styles.LeaderBoard__wrapper}>
       <Title customClasses={leaderBoardTitleClasses}>Leader board</Title>
       <div className={styles.LeaderBoard}>
-        <div className={scrollContainerClasses} ref={observerRootRef}>
-          <Search 
-            customWrapperClasses={leaderBoardSearchClasses} 
-            label="Search in leaderboard" 
-            validFn={validAddress}
-            searchFn={startOwnerSearch}
-            onClear={resetSearsch}
+        <Search
+          customWrapperClasses={leaderBoardSearchClasses}
+          label="Search in leaderboard"
+          validFn={validAddress}
+          searchFn={startOwnerSearch}
+          onClear={resetSearsch}
+        />
+        {isSuccess ? (
+          <LeadersList
+            leaders={leaders}
+            fetchMoreFn={fetchMoreLeaders}
+            isOwnerFound={isOwnerFound}
           />
-          {isSuccess ? (
-            <LeadersList 
-              leaders={leaders} 
-              fetchMoreFn={fetchMoreLeaders} 
-              observerRootRef={observerRootRef}
-              isOwnerFound={isOwnerFound}
-            />
-          ) : !isLoading && (<div className={styles.LeaderBoard__noOwners}>No owners</div>)
-          }
-          {isNeedToViewPagination && (
-            <Pagination
-              fetchPrevFn={setPrevPage} 
-              fetchNextFn={setNextPage} 
-              pages={pagesCount} 
-              currPage={currPage} 
-              prevBthDisabled={isPreviousData} 
-              nextBthDisabled={isPreviousData} 
-            />
-          )}
-          {isLoading && <Spinner />}
-        </div>
+        ) : (
+          !isLoading && <div className={styles.LeaderBoard__noOwners}>No owners</div>
+        )}
+        {isNeedToViewPagination && (
+          <Pagination
+            fetchPrevFn={setPrevPage}
+            fetchNextFn={setNextPage}
+            pages={pagesCount}
+            currPage={currPage}
+            prevBthDisabled={isPreviousData}
+            nextBthDisabled={isPreviousData}
+          />
+        )}
+        {isLoading && <Spinner />}
       </div>
     </section>
   );
