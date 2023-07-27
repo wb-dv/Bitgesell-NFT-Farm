@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { baseRefetchInterval, getOwners } from '@api';
 
-export const useLeadersPagination = (pagesCount, enabled = false) => {
+export const useLeadersPagination = (pagesCount, enabled = true) => {
   const [currPage, setCurrPage] = useState(1);
 
   const queryClient = useQueryClient();

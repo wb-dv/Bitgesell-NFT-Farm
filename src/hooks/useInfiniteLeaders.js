@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 
 import { baseRefetchInterval, getOwners } from '@api';
 
-export const useInfiniteLeaders = (pagesCount, enabled = false) => {
+export const useInfiniteLeaders = (pagesCount, enabled = true) => {
   const {
     data: allLeaders,
     isFetching: allLeadersLoading,

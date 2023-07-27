@@ -8,8 +8,13 @@ export const ByLink = memo(function ByLink({ customClasses }) {
   const byLinkClasses = combineClasses([styles.ByLink], customClasses);
 
   return (
-    <a className={byLinkClasses} href="https://opensea.io/collection/bitgesell-road" target="_blank" rel="noreferrer">
-      Buy power
+    <a
+      className={byLinkClasses}
+      href="https://opensea.io/collection/bitgesell-road"
+      target="_blank"
+      rel="noreferrer"
+    >
+      get PTS
     </a>
   );
 });

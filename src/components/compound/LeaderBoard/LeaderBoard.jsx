@@ -39,14 +39,14 @@ export function LeaderBoard() {
     isPreviousData, 
     setNextPage, 
     setPrevPage 
-  } = useLeadersPagination(pagesCount, !isPortrait || !pagesCountGetted);
+  } = useLeadersPagination(pagesCount, isPortrait || !pagesCountGetted);
 
   const { 
     allLeaders, 
     allLeadersLoaded, 
     allLeadersLoading, 
     fetchMoreLeaders 
-  } = useInfiniteLeaders(pagesCount, isPortrait || !pagesCountGetted);
+  } = useInfiniteLeaders(pagesCount, !isPortrait || !pagesCountGetted);
 
   const leaders = isOwnerFound ? foundOwner : isPortrait ? leadersPage : allLeaders;
 
