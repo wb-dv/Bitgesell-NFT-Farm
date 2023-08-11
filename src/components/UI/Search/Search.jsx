@@ -10,7 +10,8 @@ export const Search = memo(function Search({
   label, 
   searchFn = () => {}, 
   validFn = () => true, 
-  onClear = () => {} 
+  onClear = () => {},
+  placeholder = 'insert your address and click search'
 }) {
   const searchRef = useRef();
   const searchId = useId();
@@ -23,7 +24,7 @@ export const Search = memo(function Search({
     if(searchRef.current.value === '') {
       onClear();
       setValidError(false);
-    };
+    }
   };
 
   const clearInput = () => {
@@ -62,7 +63,8 @@ export const Search = memo(function Search({
         ref={searchRef} 
         onKeyUp={searchOnEnter} 
         onInput={resetValidErrorAndSearch}
-        name="search-input" 
+        name="search-input"
+        placeholder={placeholder}
       />
       <button 
         className={styles.Search__clear} 

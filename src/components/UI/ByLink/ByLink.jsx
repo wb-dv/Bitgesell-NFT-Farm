@@ -14,7 +14,7 @@ export const ByLink = memo(function ByLink({ customClasses }) {
       target="_blank"
       rel="noreferrer"
     >
-      get PTS
+      get WBGL
     </a>
   );
 });
