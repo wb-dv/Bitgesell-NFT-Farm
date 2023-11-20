@@ -30,7 +30,7 @@ export const TokensList = memo(function TokensList({ level, tokens, countPts }) 
               idx={i} 
               count={token.count} 
               level={level} 
-              key={token.id === 'NO_VALUE' ? token.index : token.id} 
+              key={token.index} 
               customClasses={token.is_full && multiLevels[level] ? tokenCustomClasses : ''} 
             />
           ))

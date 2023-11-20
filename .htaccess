@@ -1,9 +1,0 @@
-RewriteEngine on 
-SetEnvIf X-Forwarded-Proto https SERVER_PORT=443 
-SetEnvIf X-Forwarded-Proto https HTTPS=on 
-RewriteCond %{HTTP:HTTPS} !=on [NC] 
-
-RewriteCond %{HTTPS} on
-
-RewriteRule ^nft/(.*)$ http://185.105.88.18:8080%{REQUEST_URI}? [P,L,QSA]
-RewriteRule ^get_(nfts|nft_by_address|owners|wbgl|last_trade|pages|payment)(/.*)?$ http://185.105.88.18:8080/get_$1$2 [P,L]

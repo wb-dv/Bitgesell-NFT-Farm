@@ -10,7 +10,7 @@ export const ByLink = memo(function ByLink({ customClasses }) {
   return (
     <a
       className={byLinkClasses}
-      href="https://opensea.io/collection/bitgesell-road"
+      href="https://opensea.io/collection/new-bitgesell-road"
       target="_blank"
       rel="noreferrer"
     >
