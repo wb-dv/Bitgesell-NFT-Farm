@@ -1,34 +1,34 @@
 @import '/src/vars.scss';
 
 .SocialLink {
-  display: block;
-  width: 5vw;
-  height: 5vw;
+    display: block;
+    width: 5vw;
+    height: 5vw;
 
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  @include portrait-orientation {
-    width: 86px;
-    height: 86px;
-  }
-
-  &.twitter {
-    background-image: url('@img/twitter.png');
-  }
-
-  &.site {
-    width: 4.5vw;
-    height: 4.5vw;
-    background-image: url('@img/g44.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 
     @include portrait-orientation {
-      width: 77px;
-      height: 77px;
+        width: 86px;
+        height: 86px;
     }
-  }
 
-  &.telegram {
-    background-image: url('@img/telegram.png');
-  }
+    &.twitter {
+        background-image: url('@img/x.png');
+    }
+
+    &.site {
+        width: 4.5vw;
+        height: 4.5vw;
+        background-image: url('@img/g44.png');
+
+        @include portrait-orientation {
+            width: 77px;
+            height: 77px;
+        }
+    }
+
+    &.telegram {
+        background-image: url('@img/telegram.png');
+    }
 }

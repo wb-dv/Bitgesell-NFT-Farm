@@ -8,49 +8,54 @@ import { WBGLCounter } from '@UI/WBGLCounter/WBGLCounter';
 import styles from './InfoBlock.module.scss';
 
 const socials = {
-  twitter: {
-    type: 'twitter',
-    href: 'https://twitter.com/myluckbitcoin',
-  },
-  site: {
-    type: 'site',
-    href: 'https://bitgesell.ca/',
-  },
-  telegram: {
-    type: 'telegram',
-    href: 'https://t.me/bitgesellofficial',
-  },
+    twitter: {
+        type: 'twitter',
+        href: 'https://twitter.com/myluckbitcoin',
+    },
+    site: {
+        type: 'site',
+        href: 'https://bitgesell.ca/',
+    },
+    telegram: {
+        type: 'telegram',
+        href: 'https://t.me/bitgesellofficial',
+    },
 };
 
-export function InfoBlock() {
-  const {
-    data: WBGLCount,
-    isLoading,
-    isSuccess,
-  } = useQuery({
-    queryFn: getWBGL,
-    queryKey: ['WBGL'],
-    refetchInterval: baseRefetchInterval,
-  });
+const backLink = window.backLink || 'https://bitgesell.space/';
 
-  return (
-    <section className={styles.InfoBlock}>
-      <WBGLCounter count={isLoading ? '?' : isSuccess ? WBGLCount : 0} />
-      <ByLink />
-      <div className={styles.InfoBlock__socialLinks}>
-        <SocialLink
-          type={socials.twitter.type}
-          href={socials.twitter.href}
-        />
-        <SocialLink
-          type={socials.site.type}
-          href={socials.site.href}
-        />
-        <SocialLink
-          type={socials.telegram.type}
-          href={socials.telegram.href}
-        />
-      </div>
-    </section>
-  );
+export function InfoBlock() {
+    const {
+        data: WBGLCount,
+        isLoading,
+        isSuccess,
+    } = useQuery({
+        queryFn: getWBGL,
+        queryKey: ['WBGL'],
+        refetchInterval: baseRefetchInterval,
+    });
+
+    return (
+        <section className={styles.InfoBlock}>
+            <WBGLCounter count={isLoading ? '?' : isSuccess ? WBGLCount : 0} />
+            <ByLink />
+            <div className={styles.InfoBlock__socialLinks}>
+                <SocialLink
+                    type={socials.twitter.type}
+                    href={socials.twitter.href}
+                />
+                <SocialLink type={socials.site.type} href={socials.site.href} />
+                <SocialLink
+                    type={socials.telegram.type}
+                    href={socials.telegram.href}
+                />
+            </div>
+            <div className={styles.InfoBlock__backLink}>
+                And also
+                <a href={backLink} target='_blank' rel='noreferrer'>
+                    Bitgesell NFT Lottery
+                </a>
+            </div>
+        </section>
+    );
 }

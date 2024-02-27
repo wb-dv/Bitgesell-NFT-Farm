@@ -1,27 +1,47 @@
 @import '/src/vars.scss';
 
 .InfoBlock {
-  width: 28%;
-  margin-top: 1.5vw;
+    width: 28%;
+    margin-top: 1.5vw;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &__socialLinks {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 
-    width: 80%;
+    &__socialLinks {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 80%;
+
+        @include portrait-orientation {
+            width: 70%;
+        }
+    }
+
+    &__backLink {
+        font-size: 1vw;
+        font-weight: 500;
+        margin-top: 2vw;
+        text-align: center;
+
+        > a {
+            display: inline-block;
+            margin-left: 5px;
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        @include portrait-orientation {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    }
 
     @include portrait-orientation {
-      width: 70%;
+        width: 100%;
+        margin-top: 48px;
     }
-  }
-
-  @include portrait-orientation {
-    width: 100%;
-    margin-top: 48px;
-  }
 }
